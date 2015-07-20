@@ -20,7 +20,8 @@ class MyClass(object):
         '''
         self.casesList = [
                           'AllCases.HomePrice.ChangePrice',
-                          'AllCases.HomePrice.getPrice1'
+                          'AllCases.HomePrice.getPrice1',
+                          'AllCases.Settlement.getElongBankInfoByHttplib2'
                           ]
     
 if __name__ == "__main__":
