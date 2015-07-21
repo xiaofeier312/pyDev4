@@ -4,10 +4,9 @@ Created on 2015��7��21��
 
 @author: Zhijun.Zhou
 '''
-import cookielib
+
 import requests
 import json
-import unicodedata
 import re
 
 class common(object):

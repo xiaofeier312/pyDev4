@@ -7,10 +7,6 @@ Created on 2015��7��20��
 import unittest
 import requests
 import json
-import requests.utils
-import AllCases.common.common
-from pip._vendor.requests import cookies
-from __builtin__ import int
 from AllCases.common.common import common
 
 class getElongBankInfoByHttplib2(unittest.TestCase):
