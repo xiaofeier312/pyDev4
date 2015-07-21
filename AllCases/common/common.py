@@ -20,6 +20,8 @@ class common(object):
         '''
         Constructor
         '''
+        self.tempCookie = 'wrong'#cookie ,all cases can use
+        
         #Login 
         self.LoginName = 'zhiapi'
         self.passwd = 'aaaaaa1'
@@ -67,13 +69,47 @@ class common(object):
         print 'jrt@@@@@@@@ ',type(jrt)
         #jrt = json.loads(jrt)
         jrtFinal  = jrt['cookieStr']
-        print 'jrtFinal--',jrtFinal
+        #print 'jrtFinal--',jrtFinal
         jrtFinal2 = re.sub('\\r\\n','',jrtFinal)
-        print jrtFinal2
+        print 'jrtFinal2:',jrtFinal2
         print type(jrtFinal)
         print '2----------'
         
+
+    
         return jrtFinal2
+    
+    def getAssembleKeyInCookieInPortal(self):
+        '''get cookie from portal'''
+        r = requests.post(self.portalUrl,data=self.jpostLoginData,headers=self.portalHeader)
+        print r.headers
+        print '----------'
+        print '1111',r.text
+        print type(r.text)
+        print '----------'
+        jr = json.dumps(r.text)
+        jrt = json.loads(jr)
+        #
+        print 'jrt:',jrt
+        print 'type of jrt-----',type(jrt)
+        jrt = json.loads(jrt)
+        #jrt = unicodedata.normalize('NFKD', jrt).encode('ascii','ignore')
+        print 'jrt@@@@@@@@ ',type(jrt)
+        #jrt = json.loads(jrt)
+        jrtFinal  = jrt['cookieStr']
+        #print 'jrtFinal--',jrtFinal
+        jrtFinal2 = re.sub('\\r\\n','',jrtFinal)
+        print 'jrtFinal2:',jrtFinal2
+        print type(jrtFinal)
+        print '2----------'
+        
+                
+        #assemble assemble session and session ID>NewEbSessionId to a globa cookie string
+        
+        self.tempCookie = dict(NewEbSessionId =  jrtFinal2 )    
+        print 'self.tempCookieAAAA', self.tempCookie
+    
+        return self.tempCookie   
     
     def switchHttpStrToDic(self,httpStr):
         '''changing http unicode/body/json to dic'''
@@ -82,9 +118,10 @@ class common(object):
         #jdataF = unicodedata.normalize('NFKD', jdataT).encode('ascii','ignore')
         jascii = json.loads(jdataT)
         print jascii['retcode']
+
         return jascii
 
         
 if __name__ == '__main__':
     conn = common()
-    conn.getCookieInPortal()
+    conn.getAssembleKeyInCookieInPortal()
