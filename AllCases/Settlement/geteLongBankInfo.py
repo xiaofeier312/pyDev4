@@ -18,10 +18,10 @@ class Settlement(unittest.TestCase):
         pass
     
     def testGetElongInfo(self):
-        self.url = 'http://commission.ebooking.elong.com:8341/commission/commissionInfo/queryCommissionInfo'
+        self.urlloginUrl'http://commission.ebooking.elong.com:8341/commission/commissionInfo/queryCommissionInfo'
         self.sendValues = {"hotelId":"52407003"}
         self.jdata = json.dumps(self.sendValues)
-        self.req = urllib2.Request(self.url,self.jdata)
+        self.req = urllib2.Request(self.urlloginUrllf.jdata)
         print self.jdata,"--",self.__str__()
         #Test
         #self.req.add_header('Content-Type', 'application/json; charset=UTF-8')

@@ -8,7 +8,7 @@ import lib.HTMLTestRunner
 import unittest
 import time
 
-class MyClass(object):
+class common(object):
     '''
     classdocs
     '''
@@ -28,7 +28,7 @@ if __name__ == "__main__":
     testunit = unittest.TestSuite()
     
     #run all cases
-    for testcase in MyClass().casesList:
+    for testcase in common().casesList:
         print "running cases:", testcase
         testunit.addTest(unittest.defaultTestLoader.loadTestsFromName(testcase))
     

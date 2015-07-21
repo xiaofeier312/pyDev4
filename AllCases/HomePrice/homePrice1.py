@@ -16,13 +16,13 @@ class MyTest(unittest.TestCase):
 		'''get home price'''
 		#conn = httplib.HTTPConnection("192.168.14.94",8045)
 		#path = "/bms-ebooking-api/sHotel/getSHotelDetailInfo"
-		self.url="http://192.168.14.94:8045/bms-ebooking-api/sHotel/getSHotelDetailInfo"
+		self.loginUrl="http://192.168.14.94:8045/bms-ebooking-api/sHotel/getSHotelDetailInfo"
 		self.values = {"hotelId":"10101594","queryFieldList":[1,2]}
 		self.jdata = json.dumps(self.values)
 		#headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "text/plain"}
 		#req = conn.request("POST",path,jdata,headers)
 		#response = conn.getresponse()
-		self.req2 = urllib2.Request(self.url,self.jdata)
+		self.req2 = urllib2.Request(self.loginUrl,self.jdata)
 		self.req2.add_header('Content-Type', 'application/json; charset=UTF-8')
 		self.req2.add_header('X-Requested-With','XMLHttpRequest')
 		self.req2.add_header('User-Agent','Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.116')
