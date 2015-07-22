@@ -74,13 +74,11 @@ class common(object):
         print 'jrtFinal2:',jrtFinal2
         print type(jrtFinal)
         print '2----------'
-        
 
-    
         return jrtFinal2
     
     def getAssembleKeyInCookieInPortal(self):
-        '''get cookie from portal'''
+        '''get Assemble cookie from portal'''
         r = requests.post(self.portalUrl,data=self.jpostLoginData,headers=self.portalHeader)
         print r.headers
         print '----------'
@@ -101,11 +99,9 @@ class common(object):
         jrtFinal2 = re.sub('\\r\\n','',jrtFinal)
         print 'jrtFinal2:',jrtFinal2
         print type(jrtFinal)
-        print '2----------'
-        
+        print '2----------'   
                 
-        #assemble assemble session and session ID>NewEbSessionId to a globa cookie string
-        
+        #assemble assemble session and session ID>NewEbSessionId to a globa cookie string        
         self.tempCookie = dict(NewEbSessionId =  jrtFinal2 )    
         print 'self.tempCookieAAAA', self.tempCookie
     
@@ -121,6 +117,7 @@ class common(object):
 
         return jascii
 
+    
         
 if __name__ == '__main__':
     conn = common()
