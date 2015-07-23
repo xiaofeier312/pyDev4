@@ -1,10 +1,9 @@
 import unittest
-import httplib
 import json
-import urllib
 import urllib2
+import re
 
-class MyTest(unittest.TestCase):
+class homePrice1(unittest.TestCase):
 	def setUp(self):
 		print "Case running..."
 
@@ -12,7 +11,7 @@ class MyTest(unittest.TestCase):
 		print "Case end..."
 		pass
 
-	def test_home1(self):
+	def testhome1(self):
 		'''get home price'''
 		#conn = httplib.HTTPConnection("192.168.14.94",8045)
 		#path = "/bms-ebooking-api/sHotel/getSHotelDetailInfo"
@@ -30,20 +29,22 @@ class MyTest(unittest.TestCase):
 		#print response.reason
 		#print response.read()
 		#print response.getheaders()
-		#print "22222222222222"
 		#print response2.status
 		#print response2.reason
 		self.result2 = self.response2.read()
-		print self.result2
+		print 'self.result2',self.result2
 		print "type(result2): " ,type(self.result2)
-		self.jresult = json.dumps(self.result2,indent = 4)
+		self.jresult = json.dumps(self.result2)
 		#print jresult2
 		#print response2.getheaders()
-		print self.jresult
-		#print type(jresult)
-		self.assertEqual(200, 200)
-		print "case:"
+		print 'self.jresult~~',self.jresult
+		print type(self.jresult)
+		containStr = re.search('''"retcode\":0,''',self.result2)
+		print 'containStr',containStr
+		self.assertNotEqual(containStr, None)
+		print "case:~~"
 
 if __name__ == "__main__":
 	unittest.main()
+	#homePrice1().testhome1()
 	

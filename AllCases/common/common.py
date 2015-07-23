@@ -20,7 +20,7 @@ class common(object):
         '''
         Constructor
         '''
-        self.tempCookie = 'wrong'#cookie ,all cases can use
+        self.tempCookie = 'notInitNow'#cookie ,all cases can use
         
         #Login 
         self.LoginName = 'zhiapi'
@@ -73,7 +73,7 @@ class common(object):
         jrtFinal2 = re.sub('\\r\\n','',jrtFinal)
         print 'jrtFinal2:',jrtFinal2
         print type(jrtFinal)
-        print '2----------'
+        print '2 out of getCookieInPortal----------'
 
         return jrtFinal2
     
@@ -87,15 +87,13 @@ class common(object):
         print '----------'
         jr = json.dumps(r.text)
         jrt = json.loads(jr)
-        #
         print 'jrt:',jrt
         print 'type of jrt-----',type(jrt)
         jrt = json.loads(jrt)
         #jrt = unicodedata.normalize('NFKD', jrt).encode('ascii','ignore')
-        print 'jrt@@@@@@@@ ',type(jrt)
+        print 'jrt@@ ',type(jrt)
         #jrt = json.loads(jrt)
         jrtFinal  = jrt['cookieStr']
-        #print 'jrtFinal--',jrtFinal
         jrtFinal2 = re.sub('\\r\\n','',jrtFinal)
         print 'jrtFinal2:',jrtFinal2
         print type(jrtFinal)
@@ -103,8 +101,8 @@ class common(object):
                 
         #assemble assemble session and session ID>NewEbSessionId to a globa cookie string        
         self.tempCookie = dict(NewEbSessionId =  jrtFinal2 )    
-        print 'self.tempCookieAAAA', self.tempCookie
-    
+        print 'self.tempCookieAAAA', self.tempCookie  
+        print '3 out of getAssembleKeyInCookieInPortal----------' 
         return self.tempCookie   
     
     def switchHttpStrToDic(self,httpStr):
@@ -114,7 +112,7 @@ class common(object):
         #jdataF = unicodedata.normalize('NFKD', jdataT).encode('ascii','ignore')
         jascii = json.loads(jdataT)
         print jascii['retcode']
-
+        print '4 out of switchHttpStrToDic----------'
         return jascii
 
     

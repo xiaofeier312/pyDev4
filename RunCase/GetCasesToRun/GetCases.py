@@ -8,7 +8,7 @@ import lib.HTMLTestRunner
 import unittest
 import time
 
-class common(object):
+class GetCases(object):
     '''
     classdocs
     '''
@@ -19,16 +19,16 @@ class common(object):
         Constructor
         '''
         self.casesList = [
-                          'AllCases.HomePrice.ChangePrice',
-                          'AllCases.HomePrice.getPrice1',
-                          'AllCases.Settlement.getElongBankInfoByHttplib2'
+                          'AllCases.HomePrice.homePrice1',
+                          'AllCases.Settlement.getElongBankInfoByHttplib2',
+                          'AllCases.Settlement.initCommissionBill'
                           ]
     
 if __name__ == "__main__":
     testunit = unittest.TestSuite()
     
     #run all cases
-    for testcase in common().casesList:
+    for testcase in GetCases().casesList:
         print "running cases:", testcase
         testunit.addTest(unittest.defaultTestLoader.loadTestsFromName(testcase))
     
