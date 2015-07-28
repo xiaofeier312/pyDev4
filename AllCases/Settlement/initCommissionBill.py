@@ -26,6 +26,7 @@ class initCommissionBill(unittest.TestCase):
         #print 'GetCases().tempCookie',tempCommon.getAssembleKeyInCookieInPortal()        
         self.myRequestCommisonBill = requests.post(self.URLCommissionBill,data = self.jloginDataCommissionBill,headers = self.loginHeader,cookies=tempCommon.getAssembleKeyInCookieInPortal())
         print 'type self.myRequestCommisonBill:',type(self.myRequestCommisonBill.status_code)
+        print "Get response: ~~~~ ", self.myRequestCommisonBill.content
         self.assertEquals(self.myRequestCommisonBill.status_code, 200, 'status.code is not 200')
         #self.assertEquals(self.myRequestCommisonBill.content())
         print '~~~~~~~~~~~~~@@Case \'testCommissionBill\' over~~~~~~~~~~~~'

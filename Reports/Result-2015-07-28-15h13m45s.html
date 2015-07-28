@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Report_title</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+    font-size: 16pt;
+    color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>Report_title</h1>
+<p class='attribute'><strong>Start Time:</strong> 2015-07-28 15:13:45</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:36.055000</p>
+<p class='attribute'><strong>Status:</strong> Pass 6 Error 3</p>
+
+<p class='description'>Report_description</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='passClass'>
+    <td>AllCases.HomePrice.homePrice1.homePrice1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testhome1: get home price</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: Case running...
+self.result2 {"data":{"hotelInfo":{"weekEndEnd":7,"weekEndStart":5},"result":{"applicationServerIP":"192.168.17.27","errorMessage":"","responseCode":0,"usedMillionSecond":19.756}},"isReward":true,"retcode":0,"serverIp":"192.168.14.94","ticks":33}
+type(result2):  &lt;type 'str'&gt;
+self.jresult~~ "{\"data\":{\"hotelInfo\":{\"weekEndEnd\":7,\"weekEndStart\":5},\"result\":{\"applicationServerIP\":\"192.168.17.27\",\"errorMessage\":\"\",\"responseCode\":0,\"usedMillionSecond\":19.756}},\"isReward\":true,\"retcode\":0,\"serverIp\":\"192.168.14.94\",\"ticks\":33}"
+&lt;type 'str'&gt;
+containStr &lt;_sre.SRE_Match object at 0x0000000002F4F850&gt;
+case:~~
+Case end...
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>AllCases.Settlement.getElongBankInfoByHttplib2.getElongBankInfoByHttplib2</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c2',1)">Detail</a></td>
+</tr>
+
+<tr id='ft2.1' class='none'>
+    <td class='errorCase'><div class='testcase'>testGetElongBankInfo</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.1')" >
+        error</a>
+
+    <div id='div_ft2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.1: {'transfer-encoding': 'chunked', 'date': 'Tue, 28 Jul 2015 07:13:53 GMT', 'connection': 'close', 'content-type': 'application/json;charset=utf-8', 'server': 'Apache-Coyote/1.1'}
+----------
+1111 {"cookie":"214650bc-4237-4699-8aaa-ecdbf9cd756d","cookieStr":"eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlO\r\nYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6\r\nIjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFs\r\nc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYi\r\nLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRy\r\ndWUsInNlc3Npb25JZCI6IjEwZDhlZjZiZDYyNDRmMmI5MWQyYWRkYTY4YTVmYmZjIiwic2luZ2xl\r\nSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFm\r\nZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzYzNDA0NiwidXNlcklkIjoiMjUw\r\nODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIs\r\nMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2ln\r\nbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=\r\n","data":{"hotel":{"additionalStatus":"144","cityId":"2407","cityName":"仁怀（遵义）","guestRoomAmount":80,"hotelId":"10101129","hotelName":"API测试酒店","isDisabled":false,"shotelContactor":"张三","shotelPhone":"13206354396","star":"5"},"hotelId":"10101129","id":25086,"isLogin":true,"sessionId":"10d8ef6bd6244f2b91d2adda68a5fbfc","singleHotelSign":"1","staffLevel":1,"staffName":"zhiapia","staffNameEn":"zhiapi","timeStamp":1438067634046,"userId":"25086","userName":"zhiapi","userRight":"1,2,4,5,7,8,9,10,12,13,14,26,27,33,34,35,39,40,41,43,45,46,47","userSourceSign":"EB","userType":"2"},"dataSource":"EBK","retcode":200,"retdesc":"login successfully!","serverIp":"192.168.9.128","status":1}
+&lt;type 'unicode'&gt;
+----------
+jrt: {"cookie":"214650bc-4237-4699-8aaa-ecdbf9cd756d","cookieStr":"eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlO\r\nYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6\r\nIjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFs\r\nc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYi\r\nLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRy\r\ndWUsInNlc3Npb25JZCI6IjEwZDhlZjZiZDYyNDRmMmI5MWQyYWRkYTY4YTVmYmZjIiwic2luZ2xl\r\nSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFm\r\nZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzYzNDA0NiwidXNlcklkIjoiMjUw\r\nODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIs\r\nMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2ln\r\nbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=\r\n","data":{"hotel":{"additionalStatus":"144","cityId":"2407","cityName":"仁怀（遵义）","guestRoomAmount":80,"hotelId":"10101129","hotelName":"API测试酒店","isDisabled":false,"shotelContactor":"张三","shotelPhone":"13206354396","star":"5"},"hotelId":"10101129","id":25086,"isLogin":true,"sessionId":"10d8ef6bd6244f2b91d2adda68a5fbfc","singleHotelSign":"1","staffLevel":1,"staffName":"zhiapia","staffNameEn":"zhiapi","timeStamp":1438067634046,"userId":"25086","userName":"zhiapi","userRight":"1,2,4,5,7,8,9,10,12,13,14,26,27,33,34,35,39,40,41,43,45,46,47","userSourceSign":"EB","userType":"2"},"dataSource":"EBK","retcode":200,"retdesc":"login successfully!","serverIp":"192.168.9.128","status":1}
+type of jrt----- &lt;type 'unicode'&gt;
+jrt@@@@@@@@  &lt;type 'dict'&gt;
+jrtFinal2: eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlOYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6IjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFsc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYiLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRydWUsInNlc3Npb25JZCI6IjEwZDhlZjZiZDYyNDRmMmI5MWQyYWRkYTY4YTVmYmZjIiwic2luZ2xlSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFmZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzYzNDA0NiwidXNlcklkIjoiMjUwODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIsMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2lnbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=
+&lt;type 'unicode'&gt;
+2 out of getCookieInPortal----------
+Traceback (most recent call last):
+  File "D:\MyEclipse2014\pyDev4\AllCases\Settlement\getElongBankInfoByHttplib2.py", line 32, in testGetElongBankInfo
+    self.myRequest = requests.post(self.loginUrl,data = self.jdata,headers = self.loginHeader,cookies=self.cookieFulsh)
+  File "C:\Python27\lib\site-packages\requests-2.7.0-py2.7.egg\requests\api.py", line 109, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Python27\lib\site-packages\requests-2.7.0-py2.7.egg\requests\api.py", line 50, in request
+    response = session.request(method=method, url=url, **kwargs)
+  File "C:\Python27\lib\site-packages\requests-2.7.0-py2.7.egg\requests\sessions.py", line 465, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Python27\lib\site-packages\requests-2.7.0-py2.7.egg\requests\sessions.py", line 573, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Python27\lib\site-packages\requests-2.7.0-py2.7.egg\requests\adapters.py", line 413, in send
+    raise ConnectionError(err, request=request)
+ConnectionError: ('Connection aborted.', gaierror(11004, 'getaddrinfo failed'))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>AllCases.Settlement.initCommissionBill.initCommissionBill</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c3',1)">Detail</a></td>
+</tr>
+
+<tr id='ft3.1' class='none'>
+    <td class='errorCase'><div class='testcase'>testCommissonBill</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.1')" >
+        error</a>
+
+    <div id='div_ft3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.1: {'transfer-encoding': 'chunked', 'date': 'Tue, 28 Jul 2015 07:13:57 GMT', 'connection': 'close', 'content-type': 'application/json;charset=utf-8', 'server': 'Apache-Coyote/1.1'}
+----------
+1111 {"cookie":"e0176e45-3402-4c5f-9d7c-c823b2247e00","cookieStr":"eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlO\r\nYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6\r\nIjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFs\r\nc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYi\r\nLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRy\r\ndWUsInNlc3Npb25JZCI6IjBkNjhkYzI0MTdkOTQ4MTZhYzFmMGM0MDNkZWJmYjUwIiwic2luZ2xl\r\nSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFm\r\nZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzYzNzU0NSwidXNlcklkIjoiMjUw\r\nODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIs\r\nMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2ln\r\nbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=\r\n","data":{"hotel":{"additionalStatus":"144","cityId":"2407","cityName":"仁怀（遵义）","guestRoomAmount":80,"hotelId":"10101129","hotelName":"API测试酒店","isDisabled":false,"shotelContactor":"张三","shotelPhone":"13206354396","star":"5"},"hotelId":"10101129","id":25086,"isLogin":true,"sessionId":"0d68dc2417d94816ac1f0c403debfb50","singleHotelSign":"1","staffLevel":1,"staffName":"zhiapia","staffNameEn":"zhiapi","timeStamp":1438067637545,"userId":"25086","userName":"zhiapi","userRight":"1,2,4,5,7,8,9,10,12,13,14,26,27,33,34,35,39,40,41,43,45,46,47","userSourceSign":"EB","userType":"2"},"dataSource":"EBK","retcode":200,"retdesc":"login successfully!","serverIp":"192.168.9.128","status":1}
+&lt;type 'unicode'&gt;
+----------
+jrt: {"cookie":"e0176e45-3402-4c5f-9d7c-c823b2247e00","cookieStr":"eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlO\r\nYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6\r\nIjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFs\r\nc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYi\r\nLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRy\r\ndWUsInNlc3Npb25JZCI6IjBkNjhkYzI0MTdkOTQ4MTZhYzFmMGM0MDNkZWJmYjUwIiwic2luZ2xl\r\nSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFm\r\nZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzYzNzU0NSwidXNlcklkIjoiMjUw\r\nODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIs\r\nMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2ln\r\nbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=\r\n","data":{"hotel":{"additionalStatus":"144","cityId":"2407","cityName":"仁怀（遵义）","guestRoomAmount":80,"hotelId":"10101129","hotelName":"API测试酒店","isDisabled":false,"shotelContactor":"张三","shotelPhone":"13206354396","star":"5"},"hotelId":"10101129","id":25086,"isLogin":true,"sessionId":"0d68dc2417d94816ac1f0c403debfb50","singleHotelSign":"1","staffLevel":1,"staffName":"zhiapia","staffNameEn":"zhiapi","timeStamp":1438067637545,"userId":"25086","userName":"zhiapi","userRight":"1,2,4,5,7,8,9,10,12,13,14,26,27,33,34,35,39,40,41,43,45,46,47","userSourceSign":"EB","userType":"2"},"dataSource":"EBK","retcode":200,"retdesc":"login successfully!","serverIp":"192.168.9.128","status":1}
+type of jrt----- &lt;type 'unicode'&gt;
+jrt@@  &lt;type 'dict'&gt;
+jrtFinal2: eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlOYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6IjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFsc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYiLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRydWUsInNlc3Npb25JZCI6IjBkNjhkYzI0MTdkOTQ4MTZhYzFmMGM0MDNkZWJmYjUwIiwic2luZ2xlSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFmZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzYzNzU0NSwidXNlcklkIjoiMjUwODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIsMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2lnbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=
+&lt;type 'unicode'&gt;
+2----------
+self.tempCookieAAAA {'NewEbSessionId': u'eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlOYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6IjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFsc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYiLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRydWUsInNlc3Npb25JZCI6IjBkNjhkYzI0MTdkOTQ4MTZhYzFmMGM0MDNkZWJmYjUwIiwic2luZ2xlSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFmZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzYzNzU0NSwidXNlcklkIjoiMjUwODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIsMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2lnbiI6IkVCIiwidXNlclR5cGUiOiIyIn0='}
+3 out of getAssembleKeyInCookieInPortal----------
+Traceback (most recent call last):
+  File "D:\MyEclipse2014\pyDev4\AllCases\Settlement\initCommissionBill.py", line 27, in testCommissonBill
+    self.myRequestCommisonBill = requests.post(self.URLCommissionBill,data = self.jloginDataCommissionBill,headers = self.loginHeader,cookies=tempCommon.getAssembleKeyInCookieInPortal())
+  File "C:\Python27\lib\site-packages\requests-2.7.0-py2.7.egg\requests\api.py", line 109, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Python27\lib\site-packages\requests-2.7.0-py2.7.egg\requests\api.py", line 50, in request
+    response = session.request(method=method, url=url, **kwargs)
+  File "C:\Python27\lib\site-packages\requests-2.7.0-py2.7.egg\requests\sessions.py", line 465, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Python27\lib\site-packages\requests-2.7.0-py2.7.egg\requests\sessions.py", line 573, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Python27\lib\site-packages\requests-2.7.0-py2.7.egg\requests\adapters.py", line 413, in send
+    raise ConnectionError(err, request=request)
+ConnectionError: ('Connection aborted.', gaierror(11004, 'getaddrinfo failed'))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>AllCases.Settlement.paymentOrder.paymentOrder</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c4',1)">Detail</a></td>
+</tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testPaymentOrder</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
+        pass</a>
+
+    <div id='div_pt4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.1: {'transfer-encoding': 'chunked', 'date': 'Tue, 28 Jul 2015 07:13:58 GMT', 'connection': 'close', 'content-type': 'application/json;charset=utf-8', 'server': 'Apache-Coyote/1.1'}
+----------
+1111 {"cookie":"c5a61050-76e8-4935-82e1-9ad6d4b6e7f4","cookieStr":"eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlO\r\nYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6\r\nIjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFs\r\nc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYi\r\nLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRy\r\ndWUsInNlc3Npb25JZCI6Ijc3MWM3MTQ5NGIxZjQyMTE5YzI4YmU4MTk0ZmZlODZhIiwic2luZ2xl\r\nSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFm\r\nZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzYzODg3MywidXNlcklkIjoiMjUw\r\nODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIs\r\nMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2ln\r\nbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=\r\n","data":{"hotel":{"additionalStatus":"144","cityId":"2407","cityName":"仁怀（遵义）","guestRoomAmount":80,"hotelId":"10101129","hotelName":"API测试酒店","isDisabled":false,"shotelContactor":"张三","shotelPhone":"13206354396","star":"5"},"hotelId":"10101129","id":25086,"isLogin":true,"sessionId":"771c71494b1f42119c28be8194ffe86a","singleHotelSign":"1","staffLevel":1,"staffName":"zhiapia","staffNameEn":"zhiapi","timeStamp":1438067638873,"userId":"25086","userName":"zhiapi","userRight":"1,2,4,5,7,8,9,10,12,13,14,26,27,33,34,35,39,40,41,43,45,46,47","userSourceSign":"EB","userType":"2"},"dataSource":"EBK","retcode":200,"retdesc":"login successfully!","serverIp":"192.168.9.128","status":1}
+&lt;type 'unicode'&gt;
+----------
+jrt: {"cookie":"c5a61050-76e8-4935-82e1-9ad6d4b6e7f4","cookieStr":"eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlO\r\nYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6\r\nIjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFs\r\nc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYi\r\nLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRy\r\ndWUsInNlc3Npb25JZCI6Ijc3MWM3MTQ5NGIxZjQyMTE5YzI4YmU4MTk0ZmZlODZhIiwic2luZ2xl\r\nSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFm\r\nZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzYzODg3MywidXNlcklkIjoiMjUw\r\nODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIs\r\nMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2ln\r\nbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=\r\n","data":{"hotel":{"additionalStatus":"144","cityId":"2407","cityName":"仁怀（遵义）","guestRoomAmount":80,"hotelId":"10101129","hotelName":"API测试酒店","isDisabled":false,"shotelContactor":"张三","shotelPhone":"13206354396","star":"5"},"hotelId":"10101129","id":25086,"isLogin":true,"sessionId":"771c71494b1f42119c28be8194ffe86a","singleHotelSign":"1","staffLevel":1,"staffName":"zhiapia","staffNameEn":"zhiapi","timeStamp":1438067638873,"userId":"25086","userName":"zhiapi","userRight":"1,2,4,5,7,8,9,10,12,13,14,26,27,33,34,35,39,40,41,43,45,46,47","userSourceSign":"EB","userType":"2"},"dataSource":"EBK","retcode":200,"retdesc":"login successfully!","serverIp":"192.168.9.128","status":1}
+type of jrt----- &lt;type 'unicode'&gt;
+jrt@@  &lt;type 'dict'&gt;
+jrtFinal2: eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlOYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6IjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFsc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYiLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRydWUsInNlc3Npb25JZCI6Ijc3MWM3MTQ5NGIxZjQyMTE5YzI4YmU4MTk0ZmZlODZhIiwic2luZ2xlSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFmZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzYzODg3MywidXNlcklkIjoiMjUwODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIsMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2lnbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=
+&lt;type 'unicode'&gt;
+2----------
+self.tempCookieAAAA {'NewEbSessionId': u'eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlOYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6IjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFsc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYiLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRydWUsInNlc3Npb25JZCI6Ijc3MWM3MTQ5NGIxZjQyMTE5YzI4YmU4MTk0ZmZlODZhIiwic2luZ2xlSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFmZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzYzODg3MywidXNlcklkIjoiMjUwODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIsMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2lnbiI6IkVCIiwidXNlclR5cGUiOiIyIn0='}
+3 out of getAssembleKeyInCookieInPortal----------
+Get response:~~~~   {"isReward":true,"retcode":-1,"retdesc":"提交在线付款验证异常:酒店账期不存在","serverIp":"192.168.9.128","ticks":1278}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>AllCases.Settlement.debtPaymentInfo.debtPaymentInfo</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c5',1)">Detail</a></td>
+</tr>
+
+<tr id='pt5.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testDebtPaymentInfo</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.1')" >
+        pass</a>
+
+    <div id='div_pt5.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.1: {'transfer-encoding': 'chunked', 'date': 'Tue, 28 Jul 2015 07:14:01 GMT', 'connection': 'close', 'content-type': 'application/json;charset=utf-8', 'server': 'Apache-Coyote/1.1'}
+----------
+1111 {"cookie":"f789e489-7682-404d-b544-6dc941bcf07c","cookieStr":"eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlO\r\nYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6\r\nIjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFs\r\nc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYi\r\nLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRy\r\ndWUsInNlc3Npb25JZCI6IjQxZmY1ZDZiYTg1MzQ2ODliNmEyOTQ4ZjNkZjU4MjU4Iiwic2luZ2xl\r\nSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFm\r\nZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzY0MjA4OCwidXNlcklkIjoiMjUw\r\nODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIs\r\nMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2ln\r\nbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=\r\n","data":{"hotel":{"additionalStatus":"144","cityId":"2407","cityName":"仁怀（遵义）","guestRoomAmount":80,"hotelId":"10101129","hotelName":"API测试酒店","isDisabled":false,"shotelContactor":"张三","shotelPhone":"13206354396","star":"5"},"hotelId":"10101129","id":25086,"isLogin":true,"sessionId":"41ff5d6ba8534689b6a2948f3df58258","singleHotelSign":"1","staffLevel":1,"staffName":"zhiapia","staffNameEn":"zhiapi","timeStamp":1438067642088,"userId":"25086","userName":"zhiapi","userRight":"1,2,4,5,7,8,9,10,12,13,14,26,27,33,34,35,39,40,41,43,45,46,47","userSourceSign":"EB","userType":"2"},"dataSource":"EBK","retcode":200,"retdesc":"login successfully!","serverIp":"192.168.9.128","status":1}
+&lt;type 'unicode'&gt;
+----------
+jrt: {"cookie":"f789e489-7682-404d-b544-6dc941bcf07c","cookieStr":"eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlO\r\nYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6\r\nIjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFs\r\nc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYi\r\nLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRy\r\ndWUsInNlc3Npb25JZCI6IjQxZmY1ZDZiYTg1MzQ2ODliNmEyOTQ4ZjNkZjU4MjU4Iiwic2luZ2xl\r\nSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFm\r\nZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzY0MjA4OCwidXNlcklkIjoiMjUw\r\nODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIs\r\nMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2ln\r\nbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=\r\n","data":{"hotel":{"additionalStatus":"144","cityId":"2407","cityName":"仁怀（遵义）","guestRoomAmount":80,"hotelId":"10101129","hotelName":"API测试酒店","isDisabled":false,"shotelContactor":"张三","shotelPhone":"13206354396","star":"5"},"hotelId":"10101129","id":25086,"isLogin":true,"sessionId":"41ff5d6ba8534689b6a2948f3df58258","singleHotelSign":"1","staffLevel":1,"staffName":"zhiapia","staffNameEn":"zhiapi","timeStamp":1438067642088,"userId":"25086","userName":"zhiapi","userRight":"1,2,4,5,7,8,9,10,12,13,14,26,27,33,34,35,39,40,41,43,45,46,47","userSourceSign":"EB","userType":"2"},"dataSource":"EBK","retcode":200,"retdesc":"login successfully!","serverIp":"192.168.9.128","status":1}
+type of jrt----- &lt;type 'unicode'&gt;
+jrt@@  &lt;type 'dict'&gt;
+jrtFinal2: eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlOYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6IjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFsc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYiLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRydWUsInNlc3Npb25JZCI6IjQxZmY1ZDZiYTg1MzQ2ODliNmEyOTQ4ZjNkZjU4MjU4Iiwic2luZ2xlSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFmZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzY0MjA4OCwidXNlcklkIjoiMjUwODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIsMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2lnbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=
+&lt;type 'unicode'&gt;
+2----------
+self.tempCookieAAAA {'NewEbSessionId': u'eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlOYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6IjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFsc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYiLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRydWUsInNlc3Npb25JZCI6IjQxZmY1ZDZiYTg1MzQ2ODliNmEyOTQ4ZjNkZjU4MjU4Iiwic2luZ2xlSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFmZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzY0MjA4OCwidXNlcklkIjoiMjUwODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIsMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2lnbiI6IkVCIiwidXNlclR5cGUiOiIyIn0='}
+3 out of getAssembleKeyInCookieInPortal----------
+Get response:~~~~   {"data":{"responseCode":0,"responseMsg":""},"isReward":true,"retcode":0,"serverIp":"192.168.9.128","ticks":858}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>AllCases.Settlement.debtUnPayment.debtUnPayment</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c6',1)">Detail</a></td>
+</tr>
+
+<tr id='ft6.1' class='none'>
+    <td class='errorCase'><div class='testcase'>testDebtUnpayment</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.1')" >
+        error</a>
+
+    <div id='div_ft6.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft6.1: {'transfer-encoding': 'chunked', 'date': 'Tue, 28 Jul 2015 07:14:03 GMT', 'connection': 'close', 'content-type': 'application/json;charset=utf-8', 'server': 'Apache-Coyote/1.1'}
+----------
+1111 {"cookie":"aac611d3-6ac5-4925-84ff-415f6e8d062f","cookieStr":"eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlO\r\nYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6\r\nIjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFs\r\nc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYi\r\nLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRy\r\ndWUsInNlc3Npb25JZCI6IjA3NzBjNmI0NjAzZTQ0MzI4ZTcxYWUzMWU5NDFhMzlmIiwic2luZ2xl\r\nSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFm\r\nZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzY0NDQ1NiwidXNlcklkIjoiMjUw\r\nODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIs\r\nMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2ln\r\nbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=\r\n","data":{"hotel":{"additionalStatus":"144","cityId":"2407","cityName":"仁怀（遵义）","guestRoomAmount":80,"hotelId":"10101129","hotelName":"API测试酒店","isDisabled":false,"shotelContactor":"张三","shotelPhone":"13206354396","star":"5"},"hotelId":"10101129","id":25086,"isLogin":true,"sessionId":"0770c6b4603e44328e71ae31e941a39f","singleHotelSign":"1","staffLevel":1,"staffName":"zhiapia","staffNameEn":"zhiapi","timeStamp":1438067644456,"userId":"25086","userName":"zhiapi","userRight":"1,2,4,5,7,8,9,10,12,13,14,26,27,33,34,35,39,40,41,43,45,46,47","userSourceSign":"EB","userType":"2"},"dataSource":"EBK","retcode":200,"retdesc":"login successfully!","serverIp":"192.168.9.128","status":1}
+&lt;type 'unicode'&gt;
+----------
+jrt: {"cookie":"aac611d3-6ac5-4925-84ff-415f6e8d062f","cookieStr":"eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlO\r\nYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6\r\nIjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFs\r\nc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYi\r\nLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRy\r\ndWUsInNlc3Npb25JZCI6IjA3NzBjNmI0NjAzZTQ0MzI4ZTcxYWUzMWU5NDFhMzlmIiwic2luZ2xl\r\nSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFm\r\nZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzY0NDQ1NiwidXNlcklkIjoiMjUw\r\nODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIs\r\nMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2ln\r\nbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=\r\n","data":{"hotel":{"additionalStatus":"144","cityId":"2407","cityName":"仁怀（遵义）","guestRoomAmount":80,"hotelId":"10101129","hotelName":"API测试酒店","isDisabled":false,"shotelContactor":"张三","shotelPhone":"13206354396","star":"5"},"hotelId":"10101129","id":25086,"isLogin":true,"sessionId":"0770c6b4603e44328e71ae31e941a39f","singleHotelSign":"1","staffLevel":1,"staffName":"zhiapia","staffNameEn":"zhiapi","timeStamp":1438067644456,"userId":"25086","userName":"zhiapi","userRight":"1,2,4,5,7,8,9,10,12,13,14,26,27,33,34,35,39,40,41,43,45,46,47","userSourceSign":"EB","userType":"2"},"dataSource":"EBK","retcode":200,"retdesc":"login successfully!","serverIp":"192.168.9.128","status":1}
+type of jrt----- &lt;type 'unicode'&gt;
+jrt@@  &lt;type 'dict'&gt;
+jrtFinal2: eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlOYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6IjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFsc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYiLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRydWUsInNlc3Npb25JZCI6IjA3NzBjNmI0NjAzZTQ0MzI4ZTcxYWUzMWU5NDFhMzlmIiwic2luZ2xlSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFmZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzY0NDQ1NiwidXNlcklkIjoiMjUwODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIsMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2lnbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=
+&lt;type 'unicode'&gt;
+2----------
+self.tempCookieAAAA {'NewEbSessionId': u'eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlOYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6IjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFsc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYiLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRydWUsInNlc3Npb25JZCI6IjA3NzBjNmI0NjAzZTQ0MzI4ZTcxYWUzMWU5NDFhMzlmIiwic2luZ2xlSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFmZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzY0NDQ1NiwidXNlcklkIjoiMjUwODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIsMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2lnbiI6IkVCIiwidXNlclR5cGUiOiIyIn0='}
+3 out of getAssembleKeyInCookieInPortal----------
+200
+&lt;requests.packages.urllib3.response.HTTPResponse object at 0x000000000303A3C8&gt;
+Get response:~~~~  Traceback (most recent call last):
+  File "D:\MyEclipse2014\pyDev4\AllCases\Settlement\debtUnPayment.py", line 33, in testDebtUnpayment
+    print "Get response:~~~~  ", self.result.content
+AttributeError: 'debtUnPayment' object has no attribute 'result'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>AllCases.Settlement.continuePaymentOrder.continuePaymentOrder</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c7',1)">Detail</a></td>
+</tr>
+
+<tr id='pt7.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testContnuePaymentOrder</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.1')" >
+        pass</a>
+
+    <div id='div_pt7.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.1:  {'transfer-encoding': 'chunked', 'date': 'Tue, 28 Jul 2015 07:14:15 GMT', 'connection': 'close', 'content-type': 'application/json;charset=utf-8', 'server': 'Apache-Coyote/1.1'}
+----------
+1111 {"cookie":"4001f613-a0c9-426d-9e83-f6ee54627d06","cookieStr":"eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlO\r\nYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6\r\nIjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFs\r\nc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYi\r\nLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRy\r\ndWUsInNlc3Npb25JZCI6IjA2MmRhMjY3MzU2NjQzNmFiODlkNjM3NWExZDQwNDA3Iiwic2luZ2xl\r\nSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFm\r\nZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzY1NjE1NiwidXNlcklkIjoiMjUw\r\nODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIs\r\nMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2ln\r\nbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=\r\n","data":{"hotel":{"additionalStatus":"144","cityId":"2407","cityName":"仁怀（遵义）","guestRoomAmount":80,"hotelId":"10101129","hotelName":"API测试酒店","isDisabled":false,"shotelContactor":"张三","shotelPhone":"13206354396","star":"5"},"hotelId":"10101129","id":25086,"isLogin":true,"sessionId":"062da2673566436ab89d6375a1d40407","singleHotelSign":"1","staffLevel":1,"staffName":"zhiapia","staffNameEn":"zhiapi","timeStamp":1438067656156,"userId":"25086","userName":"zhiapi","userRight":"1,2,4,5,7,8,9,10,12,13,14,26,27,33,34,35,39,40,41,43,45,46,47","userSourceSign":"EB","userType":"2"},"dataSource":"EBK","retcode":200,"retdesc":"login successfully!","serverIp":"192.168.9.128","status":1}
+&lt;type 'unicode'&gt;
+----------
+jrt: {"cookie":"4001f613-a0c9-426d-9e83-f6ee54627d06","cookieStr":"eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlO\r\nYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6\r\nIjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFs\r\nc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYi\r\nLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRy\r\ndWUsInNlc3Npb25JZCI6IjA2MmRhMjY3MzU2NjQzNmFiODlkNjM3NWExZDQwNDA3Iiwic2luZ2xl\r\nSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFm\r\nZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzY1NjE1NiwidXNlcklkIjoiMjUw\r\nODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIs\r\nMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2ln\r\nbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=\r\n","data":{"hotel":{"additionalStatus":"144","cityId":"2407","cityName":"仁怀（遵义）","guestRoomAmount":80,"hotelId":"10101129","hotelName":"API测试酒店","isDisabled":false,"shotelContactor":"张三","shotelPhone":"13206354396","star":"5"},"hotelId":"10101129","id":25086,"isLogin":true,"sessionId":"062da2673566436ab89d6375a1d40407","singleHotelSign":"1","staffLevel":1,"staffName":"zhiapia","staffNameEn":"zhiapi","timeStamp":1438067656156,"userId":"25086","userName":"zhiapi","userRight":"1,2,4,5,7,8,9,10,12,13,14,26,27,33,34,35,39,40,41,43,45,46,47","userSourceSign":"EB","userType":"2"},"dataSource":"EBK","retcode":200,"retdesc":"login successfully!","serverIp":"192.168.9.128","status":1}
+type of jrt----- &lt;type 'unicode'&gt;
+jrt@@  &lt;type 'dict'&gt;
+jrtFinal2: eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlOYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6IjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFsc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYiLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRydWUsInNlc3Npb25JZCI6IjA2MmRhMjY3MzU2NjQzNmFiODlkNjM3NWExZDQwNDA3Iiwic2luZ2xlSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFmZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzY1NjE1NiwidXNlcklkIjoiMjUwODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIsMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2lnbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=
+&lt;type 'unicode'&gt;
+2----------
+self.tempCookieAAAA {'NewEbSessionId': u'eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlOYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6IjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFsc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYiLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRydWUsInNlc3Npb25JZCI6IjA2MmRhMjY3MzU2NjQzNmFiODlkNjM3NWExZDQwNDA3Iiwic2luZ2xlSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFmZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzY1NjE1NiwidXNlcklkIjoiMjUwODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIsMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2lnbiI6IkVCIiwidXNlclR5cGUiOiIyIn0='}
+3 out of getAssembleKeyInCookieInPortal----------
+200
+Get response:~~~~  {"isReward":true,"retcode":-1,"retdesc":"继续付款异常:支付订单记录不存在--112212323","serverIp":"192.168.9.128","ticks":812}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>AllCases.Settlement.cancelPaymentOrder.cancelPaymentOrder</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c8',1)">Detail</a></td>
+</tr>
+
+<tr id='pt8.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testCancelPaymentOrder</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.1')" >
+        pass</a>
+
+    <div id='div_pt8.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt8.1: {'transfer-encoding': 'chunked', 'date': 'Tue, 28 Jul 2015 07:14:17 GMT', 'connection': 'close', 'content-type': 'application/json;charset=utf-8', 'server': 'Apache-Coyote/1.1'}
+----------
+1111 {"cookie":"71e7cff2-2031-4a05-9827-0ccb0c264c04","cookieStr":"eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlO\r\nYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6\r\nIjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFs\r\nc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYi\r\nLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRy\r\ndWUsInNlc3Npb25JZCI6ImU5NDE0NjM0YjM0YzQ5MDM4OTMyMDQ1OTIxOTgzMjE5Iiwic2luZ2xl\r\nSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFm\r\nZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzY1ODUyNiwidXNlcklkIjoiMjUw\r\nODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIs\r\nMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2ln\r\nbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=\r\n","data":{"hotel":{"additionalStatus":"144","cityId":"2407","cityName":"仁怀（遵义）","guestRoomAmount":80,"hotelId":"10101129","hotelName":"API测试酒店","isDisabled":false,"shotelContactor":"张三","shotelPhone":"13206354396","star":"5"},"hotelId":"10101129","id":25086,"isLogin":true,"sessionId":"e9414634b34c49038932045921983219","singleHotelSign":"1","staffLevel":1,"staffName":"zhiapia","staffNameEn":"zhiapi","timeStamp":1438067658526,"userId":"25086","userName":"zhiapi","userRight":"1,2,4,5,7,8,9,10,12,13,14,26,27,33,34,35,39,40,41,43,45,46,47","userSourceSign":"EB","userType":"2"},"dataSource":"EBK","retcode":200,"retdesc":"login successfully!","serverIp":"192.168.9.128","status":1}
+&lt;type 'unicode'&gt;
+----------
+jrt: {"cookie":"71e7cff2-2031-4a05-9827-0ccb0c264c04","cookieStr":"eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlO\r\nYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6\r\nIjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFs\r\nc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYi\r\nLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRy\r\ndWUsInNlc3Npb25JZCI6ImU5NDE0NjM0YjM0YzQ5MDM4OTMyMDQ1OTIxOTgzMjE5Iiwic2luZ2xl\r\nSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFm\r\nZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzY1ODUyNiwidXNlcklkIjoiMjUw\r\nODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIs\r\nMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2ln\r\nbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=\r\n","data":{"hotel":{"additionalStatus":"144","cityId":"2407","cityName":"仁怀（遵义）","guestRoomAmount":80,"hotelId":"10101129","hotelName":"API测试酒店","isDisabled":false,"shotelContactor":"张三","shotelPhone":"13206354396","star":"5"},"hotelId":"10101129","id":25086,"isLogin":true,"sessionId":"e9414634b34c49038932045921983219","singleHotelSign":"1","staffLevel":1,"staffName":"zhiapia","staffNameEn":"zhiapi","timeStamp":1438067658526,"userId":"25086","userName":"zhiapi","userRight":"1,2,4,5,7,8,9,10,12,13,14,26,27,33,34,35,39,40,41,43,45,46,47","userSourceSign":"EB","userType":"2"},"dataSource":"EBK","retcode":200,"retdesc":"login successfully!","serverIp":"192.168.9.128","status":1}
+type of jrt----- &lt;type 'unicode'&gt;
+jrt@@  &lt;type 'dict'&gt;
+jrtFinal2: eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlOYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6IjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFsc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYiLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRydWUsInNlc3Npb25JZCI6ImU5NDE0NjM0YjM0YzQ5MDM4OTMyMDQ1OTIxOTgzMjE5Iiwic2luZ2xlSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFmZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzY1ODUyNiwidXNlcklkIjoiMjUwODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIsMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2lnbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=
+&lt;type 'unicode'&gt;
+2----------
+self.tempCookieAAAA {'NewEbSessionId': u'eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlOYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6IjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFsc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYiLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRydWUsInNlc3Npb25JZCI6ImU5NDE0NjM0YjM0YzQ5MDM4OTMyMDQ1OTIxOTgzMjE5Iiwic2luZ2xlSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFmZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzY1ODUyNiwidXNlcklkIjoiMjUwODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIsMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2lnbiI6IkVCIiwidXNlclR5cGUiOiIyIn0='}
+3 out of getAssembleKeyInCookieInPortal----------
+200
+{"isReward":true,"retcode":-1,"retdesc":"取消付款异常:请求参数不能含有null值","serverIp":"192.168.9.128","ticks":1301}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>AllCases.Settlement.queryPayOrder.queryPayOrder</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c9',1)">Detail</a></td>
+</tr>
+
+<tr id='pt9.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testQueryOrder</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt9.1')" >
+        pass</a>
+
+    <div id='div_pt9.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt9.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt9.1: {'transfer-encoding': 'chunked', 'date': 'Tue, 28 Jul 2015 07:14:20 GMT', 'connection': 'close', 'content-type': 'application/json;charset=utf-8', 'server': 'Apache-Coyote/1.1'}
+----------
+1111 {"cookie":"e1433b45-6bab-49d3-8f3e-838a72e34b80","cookieStr":"eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlO\r\nYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6\r\nIjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFs\r\nc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYi\r\nLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRy\r\ndWUsInNlc3Npb25JZCI6IjRiNzNhZGE0MDgyMDRmYWVhZGNiMjVmZWE1MjhkYTc2Iiwic2luZ2xl\r\nSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFm\r\nZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzY2MTMyNiwidXNlcklkIjoiMjUw\r\nODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIs\r\nMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2ln\r\nbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=\r\n","data":{"hotel":{"additionalStatus":"144","cityId":"2407","cityName":"仁怀（遵义）","guestRoomAmount":80,"hotelId":"10101129","hotelName":"API测试酒店","isDisabled":false,"shotelContactor":"张三","shotelPhone":"13206354396","star":"5"},"hotelId":"10101129","id":25086,"isLogin":true,"sessionId":"4b73ada408204faeadcb25fea528da76","singleHotelSign":"1","staffLevel":1,"staffName":"zhiapia","staffNameEn":"zhiapi","timeStamp":1438067661326,"userId":"25086","userName":"zhiapi","userRight":"1,2,4,5,7,8,9,10,12,13,14,26,27,33,34,35,39,40,41,43,45,46,47","userSourceSign":"EB","userType":"2"},"dataSource":"EBK","retcode":200,"retdesc":"login successfully!","serverIp":"192.168.9.128","status":1}
+&lt;type 'unicode'&gt;
+----------
+jrt: {"cookie":"e1433b45-6bab-49d3-8f3e-838a72e34b80","cookieStr":"eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlO\r\nYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6\r\nIjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFs\r\nc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYi\r\nLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRy\r\ndWUsInNlc3Npb25JZCI6IjRiNzNhZGE0MDgyMDRmYWVhZGNiMjVmZWE1MjhkYTc2Iiwic2luZ2xl\r\nSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFm\r\nZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzY2MTMyNiwidXNlcklkIjoiMjUw\r\nODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIs\r\nMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2ln\r\nbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=\r\n","data":{"hotel":{"additionalStatus":"144","cityId":"2407","cityName":"仁怀（遵义）","guestRoomAmount":80,"hotelId":"10101129","hotelName":"API测试酒店","isDisabled":false,"shotelContactor":"张三","shotelPhone":"13206354396","star":"5"},"hotelId":"10101129","id":25086,"isLogin":true,"sessionId":"4b73ada408204faeadcb25fea528da76","singleHotelSign":"1","staffLevel":1,"staffName":"zhiapia","staffNameEn":"zhiapi","timeStamp":1438067661326,"userId":"25086","userName":"zhiapi","userRight":"1,2,4,5,7,8,9,10,12,13,14,26,27,33,34,35,39,40,41,43,45,46,47","userSourceSign":"EB","userType":"2"},"dataSource":"EBK","retcode":200,"retdesc":"login successfully!","serverIp":"192.168.9.128","status":1}
+type of jrt----- &lt;type 'unicode'&gt;
+jrt@@  &lt;type 'dict'&gt;
+jrtFinal2: eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlOYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6IjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFsc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYiLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRydWUsInNlc3Npb25JZCI6IjRiNzNhZGE0MDgyMDRmYWVhZGNiMjVmZWE1MjhkYTc2Iiwic2luZ2xlSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFmZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzY2MTMyNiwidXNlcklkIjoiMjUwODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIsMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2lnbiI6IkVCIiwidXNlclR5cGUiOiIyIn0=
+&lt;type 'unicode'&gt;
+2----------
+self.tempCookieAAAA {'NewEbSessionId': u'eyJob3RlbCI6eyJhZGRpdGlvbmFsU3RhdHVzIjoiMTQ0IiwiY2l0eUlkIjoiMjQwNyIsImNpdHlOYW1lIjoi5LuB5oCA77yI6YG15LmJ77yJIiwiZ3Vlc3RSb29tQW1vdW50Ijo4MCwiaG90ZWxJZCI6IjEwMTAxMTI5IiwiaG90ZWxOYW1lIjoiQVBJ5rWL6K+V6YWS5bqXIiwiaXNEaXNhYmxlZCI6ZmFsc2UsInNob3RlbENvbnRhY3RvciI6IuW8oOS4iSIsInNob3RlbFBob25lIjoiMTMyMDYzNTQzOTYiLCJzdGFyIjoiNSJ9LCJob3RlbElkIjoiMTAxMDExMjkiLCJpZCI6MjUwODYsImlzTG9naW4iOnRydWUsInNlc3Npb25JZCI6IjRiNzNhZGE0MDgyMDRmYWVhZGNiMjVmZWE1MjhkYTc2Iiwic2luZ2xlSG90ZWxTaWduIjoiMSIsInN0YWZmTGV2ZWwiOjEsInN0YWZmTmFtZSI6InpoaWFwaWEiLCJzdGFmZk5hbWVFbiI6InpoaWFwaSIsInRpbWVTdGFtcCI6MTQzODA2NzY2MTMyNiwidXNlcklkIjoiMjUwODYiLCJ1c2VyTmFtZSI6InpoaWFwaSIsInVzZXJSaWdodCI6IjEsMiw0LDUsNyw4LDksMTAsMTIsMTMsMTQsMjYsMjcsMzMsMzQsMzUsMzksNDAsNDEsNDMsNDUsNDYsNDciLCJ1c2VyU291cmNlU2lnbiI6IkVCIiwidXNlclR5cGUiOiIyIn0='}
+3 out of getAssembleKeyInCookieInPortal----------
+200
+Get response:~~~~   {"data":{"payOrderList":[]},"isReward":true,"retcode":0,"serverIp":"192.168.9.128","ticks":0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>9</td>
+    <td>6</td>
+    <td>0</td>
+    <td>3</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>

@@ -1,6 +1,15 @@
 eclipse.preferences.version=1
+encoding//AllCases/Settlement/cancelPaymentOrder.py=utf-8
+encoding//AllCases/Settlement/continuePaymentOrder.py=utf-8
+encoding//AllCases/Settlement/debtPaymentInfo.py=utf-8
+encoding//AllCases/Settlement/debtUnPayment.py=utf-8
 encoding//AllCases/Settlement/getElongBankInfoByHttplib2.py=utf-8
 encoding//AllCases/Settlement/initCommissionBill.py=utf-8
+encoding//AllCases/Settlement/paymentOrder.py=utf-8
+encoding//AllCases/Settlement/queryPayOrder.py=utf-8
 encoding//AllCases/common/common.py=utf-8
 encoding//AllCases/common/connMysql.py=utf-8
 encoding//RunCase/GetCasesToRun/GetCases.py=utf-8
+encoding//lib/HTMLTestRunner.py=utf-8
+encoding//temp/find.py=utf-8
+encoding//temp/findstr.py=utf8

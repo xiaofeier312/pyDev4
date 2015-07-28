@@ -18,14 +18,34 @@ class GetCases(object):
         '''
         Constructor
         '''
+        
         self.casesList = [
                           'AllCases.HomePrice.homePrice1',
                           'AllCases.Settlement.getElongBankInfoByHttplib2',
-                          'AllCases.Settlement.initCommissionBill'
+                          'AllCases.Settlement.initCommissionBill',
+                          'AllCases.Settlement.paymentOrder',
+                          'AllCases.Settlement.debtPaymentInfo',
+                          'AllCases.Settlement.debtUnPayment',
+                          'AllCases.Settlement.continuePaymentOrder',
+                          'AllCases.Settlement.cancelPaymentOrder',
+                          'AllCases.Settlement.queryPayOrder'
                           ]
-    
+                          
+        '''
+        self.casesList = [
+                          #'AllCases.HomePrice.homePrice1',
+                          #'AllCases.Settlement.getElongBankInfoByHttplib2',
+                          #'AllCases.Settlement.initCommissionBill',
+                         # 'AllCases.Settlement.paymentOrder',
+                         # 'AllCases.Settlement.debtPaymentInfo',
+                         # 'AllCases.Settlement.debtUnPayment',
+                           'AllCases.Settlement.continuePaymentOrder',
+                          #'AllCases.Settlement.cancelPaymentOrder',
+                         # 'AllCases.Settlement.queryPayOrder'
+                          ]        
+        '''
 if __name__ == "__main__":
-    testunit = unittest.TestSuite()
+    testunit = unittest.TestSuite() 
     
     #run all cases
     for testcase in GetCases().casesList:
