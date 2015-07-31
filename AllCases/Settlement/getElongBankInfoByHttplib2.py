@@ -34,7 +34,9 @@ class getElongBankInfoByHttplib2(unittest.TestCase):
         
         print 'return is:',self.myRequest.text
         dataDic = common().switchHttpStrToDic(self.myRequest.text)
+        print 'response:~~' , self.myRequest.content
         self.assertEquals(dataDic['retcode'], 0, 'retcode is not 0')
+        self.assertEquals(self.myRequest.status_code, 200, 'return is not 200')
         print '~~~~~~~~~~~~~@@Case \'testGetElongBankInfo\' over~~~~~~~~~~~~'
     
 

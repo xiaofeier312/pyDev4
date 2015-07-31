@@ -5,6 +5,7 @@ Created on 2015年7月28日
 @author: Zhijun.Zhou
 '''
 import unittest
+import re
 import json
 import requests
 from AllCases.common.common import common
@@ -34,6 +35,7 @@ class continuePaymentOrder(unittest.TestCase):
         print self.req.status_code
         print "Get response:~~~~ ", self.req.content
         self.assertEquals(self.req.status_code, 200, 'return is not 200')
+        self.assertNotEqual(re.search('"retcode":0',self.req.content), None, "retcod is not 0")
         
 if __name__ == '__main__':
     unittest.main

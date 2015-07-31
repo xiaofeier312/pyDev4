@@ -8,6 +8,7 @@ import json
 import requests
 import unittest
 from AllCases.common.common import common
+import re
 
 class cancelPaymentOrder(unittest.TestCase):
     def setUp(self):
@@ -31,6 +32,7 @@ class cancelPaymentOrder(unittest.TestCase):
         print self.req.status_code
         print self.req.content
         self.assertEquals(self.req.status_code, 200, 'return is not 200')
+        self.assertNotEqual(re.search('"retcode":0',self.req.content), None, "retcod is not 0")
         
 if __name__ == '__main__':
     unittest.main

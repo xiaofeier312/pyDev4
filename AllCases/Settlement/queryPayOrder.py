@@ -8,6 +8,7 @@ import json
 import requests
 import unittest
 from AllCases.common.common import common
+import re
 
 class queryPayOrder(unittest.TestCase):
     def setUp(self):
@@ -25,6 +26,7 @@ class queryPayOrder(unittest.TestCase):
         print self.req.status_code 
         print "Get response:~~~~  ", self.req.content
         self.assertEquals(self.req.status_code, 200, "not back 200")
+        self.assertNotEqual(re.search('"retcode":0', self.req.content),None,'retcode is not 0')
         
 if __name__ == '__main__':
     unittest.main

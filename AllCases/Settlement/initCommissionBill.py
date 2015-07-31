@@ -9,6 +9,7 @@ import json
 from AllCases.common.common import common
 import requests
 import unittest
+import re
 
 class initCommissionBill(unittest.TestCase):
     def setUp(self):
@@ -28,6 +29,7 @@ class initCommissionBill(unittest.TestCase):
         print 'type self.myRequestCommisonBill:',type(self.myRequestCommisonBill.status_code)
         print "Get response: ~~~~ ", self.myRequestCommisonBill.content
         self.assertEquals(self.myRequestCommisonBill.status_code, 200, 'status.code is not 200')
+        self.assertNotEqual(re.search('"retcode":0', self.myRequestCommisonBill.content),None,'retcode is not 0')
         #self.assertEquals(self.myRequestCommisonBill.content())
         print '~~~~~~~~~~~~~@@Case \'testCommissionBill\' over~~~~~~~~~~~~'
         

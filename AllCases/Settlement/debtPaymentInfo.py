@@ -8,6 +8,7 @@ import unittest
 import requests
 import json
 from AllCases.common.common import common
+import re
 
 class debtPaymentInfo(unittest.TestCase):
     def setUp(self):
@@ -63,6 +64,7 @@ class debtPaymentInfo(unittest.TestCase):
         self.req = requests.post(self.URL,data = self.jData, headers = self.loginHeader,cookies = tempCommon.getAssembleKeyInCookieInPortal())
         print "Get response:~~~~  ", self.req.content
         self.assertEquals(self.req.status_code, 200, 'return is not 200')
+        self.assertNotEqual(re.search('"retcode":0',self.req.content), None, "retcod is not 0")
         
 if __name__ == '__main__':
     unittest.main
